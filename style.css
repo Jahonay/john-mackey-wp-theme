@@ -13,3 +13,41 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: johnmackey
 Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
 */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin-bottom: 0;
+}
+
+.navbar a {
+    color: black;
+}
+
+.logo * {
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.navbar-nav ul {
+    list-style: unset;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    vertical-align: middle;
+    margin: auto 0;
+    margin-left: auto;
+    font-size: large;
+    text-transform: lowercase;
+}
+
+.navbar-wrapper {
+    padding: 1vw;
+}

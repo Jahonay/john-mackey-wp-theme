@@ -6,15 +6,13 @@ echo get_header_part();
 ?>
 
 
-<div class=" container">
-    <div class="row">
 
-        <?php if (is_front_page()) {
-            echo get_home_parts();
-        }
-        ?>
-    </div>
-</div>
+
+<?php if (is_front_page()) {
+    echo get_home_parts();
+}
+?>
+
 </body>
 <?php
 echo get_footer_part();

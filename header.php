@@ -10,13 +10,20 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>John Mackey</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="' . get_stylesheet_uri() . '">
+            
 
             <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+            <style>
+                .body{
+                    background-color: ' . get_theme_mod('background_color') . '
+                }
+            </style>
         </head>
 
         <body>
-            <div class="container">
+        <div class="navbar-wrapper">
+            <div class=" container">
                 <div class="navbar row">
                     <div class="logo col-md-3">
                         <a href="/">
@@ -28,12 +35,14 @@
         $html .= wp_nav_menu(array(
             'theme_location' => 'header_nav',
             'container' => '<ul>',
+            'container_class' => 'fkjldsaflkjf',
             'echo' => false,
             'menu' => 'nav_menu',
-            'items_wrap'  => '<li>%1$s</li>'
+            'items_wrap'  => '<li class="nav-item nav-link">%1$s</li>',
+            'menu_class' => 'navbar-nav',
         ));
         $html .= '</ul>
-
+                    </div>
                 </div>
             </div>';
 
