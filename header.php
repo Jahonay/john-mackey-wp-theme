@@ -3,6 +3,8 @@
 
     function get_header_part()
     {
+        global $wp_customize;
+        $logo = get_theme_mod('logo_name');
         $html = '<!DOCTYPE html>
 
         <head>
@@ -27,7 +29,7 @@
                 <div class="navbar row">
                     <div class="logo col-md-3">
                         <a href="/">
-                            <h1>John Mackey</h1>
+                            <h1>' . $logo . '</h1>
                         </a>
 
                     </div>
