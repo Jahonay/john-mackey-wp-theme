@@ -22,12 +22,26 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
     padding: 0;
 }
 
+.entry-title {
+    display: none;
+}
+
+.hero-text {
+    font-size: 4rem;
+    flex-direction: column;
+    font-weight: 900;
+}
+
 ul {
     margin-bottom: 0;
 }
 
 .navbar a {
     color: black;
+}
+
+.navbar {
+    padding-inline: unset;
 }
 
 .logo * {
@@ -48,10 +62,39 @@ ul {
     text-transform: lowercase;
 }
 
-.navbar-wrapper {
-    padding: 1vw;
+.shape-section {
+    background-image: linear-gradient(92deg, #0250FF 0%, #DC29F2 100%);
+    font-weight: 900;
+    color: white;
 }
 
+.shape-section .btn,
+.shape-section h2 {
+    font-weight: 900;
+}
+
+.shape-section h2 {
+    font-size: 2.9rem;
+
+}
+
+html nav {
+    display: block;
+}
+
+.shape-section .container {
+
+    padding: 2vw 0;
+}
+
+.shape-top {
+    fill: #fff;
+}
+
+.shape-bottom {
+    fill: #fff;
+    transform: rotate(180deg);
+}
 
 nav {
     display: table-cell;
