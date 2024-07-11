@@ -16,7 +16,7 @@ while (have_posts()) :
         </div>
         <div class="row skills">
             <?php
-            while ($mypod->fetch()) {
+            while ($mypod->fetch(null, false)) {
                 $skills = $mypod->display('highlighted_skills');
                 $skills = explode(' ', trim($skills));
                 if (count($skills) > 1) {

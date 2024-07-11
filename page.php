@@ -20,7 +20,7 @@ get_header();
 
 <main id="primary" class="site-main">
 	<?php if (is_front_page()) {
-		echo require_once('homepage.php');
+		require_once('homepage.php');
 	} else {
 	?>
 
