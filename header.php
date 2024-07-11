@@ -49,7 +49,7 @@ add_action('wp_head', 'header_add'); ?>
 			<nav class="navbar-wrapper">
 				<div class=" container">
 					<div class="navbar row">
-						<div class="logo col-md-3">
+						<div class="logo col-md-3 d-flex justify-content-start pl-0">
 							<a href="/">
 								<h1><?= $logo ?></h1>
 							</a>

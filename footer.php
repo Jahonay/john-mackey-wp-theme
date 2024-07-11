@@ -11,7 +11,7 @@
  */
 $logo = get_theme_mod('logo_name');
 ?>
-
+</div>
 <footer id="colophon" class="site-footer">
 	<div class="site-info">
 		<footer class="bg-dark pt-5">
