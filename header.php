@@ -14,7 +14,10 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
-<head>
+<?php
+function header_add()
+{
+?>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -28,10 +31,14 @@
 		.body {
 			background-color: ' . get_theme_mod(' background_color') . '
 		}
-	</style>' .
+	</style>
+<?php
+}
+add_action('wp_head', 'header_add'); ?>
 
-	<?php wp_head(); ?>
-</head>
+
+<?php wp_head(); ?>
+
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open();
@@ -48,14 +55,15 @@
 							</a>
 
 						</div>
-						<ul class="col-md-9" id="menu_nav">
+						<ul class="col  d-flex justify-content-end" id="menu_nav">
 							<?php echo wp_nav_menu(array(
+								'menu' => 'navy_gate',
 								'theme_location' => 'header_nav',
 								'container' => '<ul>',
 								'container_class' => 'fkjldsaflkjf',
-								'echo' => false,
-								'menu_id' => 'nav_menu',
-								'items_wrap'  => '<li class="nav-item nav-link">%1$s</li>',
+								'echo' => true,
+								'menu_id' => '',
+								'items_wrap'  => '<li class="nav-item nav-link">%3$s</li>',
 								'menu_class' => 'navbar-nav',
 							));
 
