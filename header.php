@@ -57,8 +57,8 @@ add_action('wp_head', 'header_add'); ?>
 						</div>
 						<ul class="col  d-flex justify-content-end" id="menu_nav">
 							<?php echo wp_nav_menu(array(
-								'menu' => 'navy_gate',
-								'theme_location' => 'header_nav',
+								'menu' => '',
+								'theme_location' => 'primary',
 								'container' => '<ul>',
 								'container_class' => 'fkjldsaflkjf',
 								'echo' => true,
