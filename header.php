@@ -49,22 +49,21 @@ add_action('wp_head', 'header_add'); ?>
 			<nav class="navbar-wrapper">
 				<div class=" container">
 					<div class="navbar row">
-						<div class="logo col-md-3 d-flex justify-content-start pl-0">
+						<div class="logo col-md-3 d-flex mr-auto my-auto pl-0">
 							<a href="/">
-								<h1><?= $logo ?></h1>
+								<h2><?= $logo ?></h2>
 							</a>
 
 						</div>
-						<ul class="col  d-flex justify-content-end" id="menu_nav">
+						<ul class="col justify-content-end d-flex navbar-nav ml-auto my-auto" id="menu_nav">
 							<?php echo wp_nav_menu(array(
 								'menu' => '',
+								'container' => '',
 								'theme_location' => 'primary',
-								'container' => '<ul>',
-								'container_class' => 'fkjldsaflkjf',
 								'echo' => true,
 								'menu_id' => '',
 								'items_wrap'  => '<li class="nav-item nav-link">%3$s</li>',
-								'menu_class' => 'navbar-nav',
+								'menu_class' => 'navbar-nav'
 							));
 
 
