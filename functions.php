@@ -220,10 +220,6 @@ function my_custom_function()
 				padding: 0;
 			}
 
-			.navbar-nav {
-				display: none !important;
-			}
-
 			.left-col,
 			.right-col {
 				min-height: 95vh;
@@ -267,10 +263,17 @@ function my_custom_function()
 			li {
 				font-size: .8rem;
 				margin-left: 15px;
+				width: 100%;
+				list-style-type: bullets;
+			}
+
+			.navbar-nav {
+				display: none !important;
 			}
 
 			ul {
 				margin-bottom: 2px;
+				list-style: bullets;
 			}
 
 			p {
@@ -293,6 +296,13 @@ function my_custom_function()
 				padding: 20px;
 				background-color: black;
 				color: white;
+				font-size: 2rem;
+				font-weight: bold;
+				opacity: 0.8;
+				background-image: linear-gradient(135deg, #000 25%, #000000e6 25%), linear-gradient(225deg, #000 25%, transparent 25%), linear-gradient(45deg, #000 25%, transparent 25%), linear-gradient(315deg, #000 25%, #e5e5f7 25%);
+				background-position: 10px 0, 10px 0, 0 0, 0 0;
+				background-size: 10px 10px;
+				background-repeat: repeat;
 			}
 
 			.flower-box>* {
@@ -301,17 +311,44 @@ function my_custom_function()
 			}
 
 			.flower-box .mx-auto {
-				margin: 0 -10px 0 10px !important;
+				margin: 10px -10px 0 10px !important;
+				background-color: white;
+			}
+
+			.flower-box.skills .mx-auto,
+			.flower-box.websites .mx-auto {
+				background-color: transparent;
 			}
 
 			.job-title {
 				font-weight: bold;
 			}
 
+			@media screen and (min-width:900px) {
+
+				.jobs .mx-auto:hover,
+				.education .mx-auto:hover {
+
+					transform: scale(1.4, 1.4);
+				}
+			}
+
 			.jobs .mx-auto:hover,
 			.education .mx-auto:hover {
 				border-radius: 20px;
-				box-shadow: 0 0 5px 5px rgba(0, 0, 0, .25)
+				box-shadow: 0 0 5px 5px rgba(0, 0, 0, .25);
+				transition: 1s ease-in-out;
+				background-color: white;
+				position: relative;
+				z-index: 1;
+			}
+
+			.jobs .mx-auto:hover before,
+			.education .mx-auto:hover before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background-color: rgba(0, 0, 0, .25);
 			}
 
 			.college {
@@ -319,32 +356,62 @@ function my_custom_function()
 			}
 		</style>
 		<script>
-			$('umass').on('click', function() {
-				window.open("https://www.umass.edu");
-			})
-			$('salem').on('click', function() {
-				window.open("https://www.salemstate.edu");
-			})
-			$('northshore').on('click', function() {
-				window.open("https://www.northshore.edu");
-			})
-			$('promosis').on('click', function() {
-				window.open("https://www.promosis.com");
-			})
-			$('cornell').on('click', function() {
-				window.open("https://www.cornell.edu");
-			})
-			$('nl-softworks').on('click', function() {
-				window.open("https://www.nlsoftworks.com");
-			})
-			$('guildhall').on('click', function() {
-				window.open("https://www.guildhalllearning.com");
-			})
-			$('globalchildrenschool').on('click', function() {
-				window.open("https://www.globalchildrenschool.com");
+			jQuery(window).on('load', function($) {
+				jQuery('.umass').on('click', function() {
+					window.open("https://www.umass.edu");
+					console.log(this);
+				})
+				jQuery('.salem').on('click', function() {
+					window.open("https://www.salemstate.edu");
+					console.log(this);
+				})
+				jQuery('.northshore').on('click', function() {
+					window.open("https://www.northshore.edu");
+					console.log(this);
+				})
+				jQuery('.promosis').on('click', function() {
+					window.open("https://www.promosis.com");
+					console.log(this);
+				})
+				jQuery('.cornell').on('click', function() {
+					window.open("https://www.cornell.edu");
+					console.log(this);
+				})
+				jQuery('.nl-softworks').on('click', function() {
+					window.open("https://www.nlsoftworks.com");
+					console.log(this);
+				})
+				jQuery('.guildhall').on('click', function() {
+					window.open("https://www.guildhalllearning.com");
+					console.log(this);
+				})
+				jQuery('.globalchildrenschool').on('click', function() {
+					window.open("https://www.globalchildrenschool.com");
+					console.log(this);
+				})
+				jQuery('.college, .job-title').each(function() {
+					var text = jQuery(this).html();
+					var text = text.replace('<p>', '');
+					var text = text.replace('</p>', '');
+					var text = text.replace('<br>', '');
+					var text = text.trim();
+					jQuery(this).html(text + '<i class="pl-2 d-inline ml-auto fa-solid fa-up-right-from-square"></i>');
+					console.log(this);
+				})
 			})
 		</script>
 <?php
 	}
 }
 add_action('wp_footer', 'my_custom_function');
+
+function add_file_types_to_uploads($file_types)
+{
+
+	$new_filetypes = array();
+	$new_filetypes['png'] = 'image/png';
+	$file_types = array_merge($file_types, $new_filetypes);
+
+	return $file_types;
+}
+add_action('upload_mimes', 'add_file_types_to_uploads');
