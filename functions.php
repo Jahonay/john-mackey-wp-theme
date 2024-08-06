@@ -207,3 +207,144 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+function my_custom_function()
+{
+	if (is_page('resume')) {
+?>
+
+		<style>
+			* {
+				/*border: 1px solid red;*/
+				margin: 0;
+				padding: 0;
+			}
+
+			.navbar-nav {
+				display: none !important;
+			}
+
+			.left-col,
+			.right-col {
+				min-height: 95vh;
+			}
+
+			a,
+			a:hover,
+			a:active,
+			a:focus,
+			a:focus-visible,
+			a:focus-within {
+				text-decoration: none;
+				color: rgb(127, 64, 187);
+
+			}
+
+			h1 {
+				font-size: 1.6rem;
+				margin: 0;
+
+			}
+
+			h2 {
+				font-size: 1.2rem;
+				margin: 0;
+
+			}
+
+			h3 {
+				font-size: 1.1rem;
+				margin: 0;
+
+			}
+
+			h4 {
+				font-size: 1rem;
+				margin: 0;
+
+			}
+
+			li {
+				font-size: .8rem;
+				margin-left: 15px;
+			}
+
+			ul {
+				margin-bottom: 2px;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.jobs div,
+			.education div {
+				width: 95%;
+			}
+
+
+			.flower-box {
+				border: 3px solid black;
+				margin: 10px 0 10px 0;
+				padding-bottom: 15px;
+			}
+
+			.flower-box>*:first-child {
+				padding: 20px;
+				background-color: black;
+				color: white;
+			}
+
+			.flower-box>* {
+				padding: 10px 10px 0px 10px;
+				width: 100%;
+			}
+
+			.flower-box .mx-auto {
+				margin: 0 -10px 0 10px !important;
+			}
+
+			.job-title {
+				font-weight: bold;
+			}
+
+			.jobs .mx-auto:hover,
+			.education .mx-auto:hover {
+				border-radius: 20px;
+				box-shadow: 0 0 5px 5px rgba(0, 0, 0, .25)
+			}
+
+			.college {
+				font-weight: bold;
+			}
+		</style>
+		<script>
+			$('umass').on('click', function() {
+				window.open("https://www.umass.edu");
+			})
+			$('salem').on('click', function() {
+				window.open("https://www.salemstate.edu");
+			})
+			$('northshore').on('click', function() {
+				window.open("https://www.northshore.edu");
+			})
+			$('promosis').on('click', function() {
+				window.open("https://www.promosis.com");
+			})
+			$('cornell').on('click', function() {
+				window.open("https://www.cornell.edu");
+			})
+			$('nl-softworks').on('click', function() {
+				window.open("https://www.nlsoftworks.com");
+			})
+			$('guildhall').on('click', function() {
+				window.open("https://www.guildhalllearning.com");
+			})
+			$('globalchildrenschool').on('click', function() {
+				window.open("https://www.globalchildrenschool.com");
+			})
+		</script>
+<?php
+	}
+}
+add_action('wp_footer', 'my_custom_function');
