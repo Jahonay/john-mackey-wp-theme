@@ -415,3 +415,51 @@ function add_file_types_to_uploads($file_types)
 	return $file_types;
 }
 add_action('upload_mimes', 'add_file_types_to_uploads');
+
+
+function display_category_posts($atts)
+{
+	// Extract shortcode attributes
+	$atts = shortcode_atts(
+		array(
+			'category' => '', // Category slug or ID
+			'posts_per_page' => -1, // Number of posts to display, -1 for all
+		),
+		$atts,
+		'categoryposts'
+	);
+
+	// Arguments for WP_Query
+	$args = array(
+		'category_name'  => $atts['category'], // Category slug
+		'posts_per_page' => $atts['posts_per_page'],
+	);
+
+	// Query the posts
+	$query = new WP_Query($args);
+
+	// Start output buffering
+	ob_start();
+
+	// Check if there are posts
+	if ($query->have_posts()) {
+		echo '<ul>'; // Start a list (or customize this to your needs)
+		while ($query->have_posts()) {
+			$query->the_post();
+			echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+			echo '<p>' . the_content() . '</p>';
+		}
+		echo '</ul>';
+	} else {
+		echo 'No posts found.';
+	}
+
+	// Reset post data
+	wp_reset_postdata();
+
+	// Return the buffered content
+	return ob_get_clean();
+}
+
+// Register the shortcode
+add_shortcode('categoryposts', 'display_category_posts');
